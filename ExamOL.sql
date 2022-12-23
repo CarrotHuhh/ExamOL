@@ -11,7 +11,7 @@
  Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 23/12/2022 23:50:37
+ Date: 24/12/2022 00:02:26
 */
 
 SET NAMES utf8mb4;
@@ -108,7 +108,7 @@ COMMIT;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `userId` int unsigned NOT NULL AUTO_INCREMENT COMMENT '账号',
-  `userName` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
+  `username` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(50) NOT NULL COMMENT '密码',
   PRIMARY KEY (`userId`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=10010 DEFAULT CHARSET=utf8mb3;
@@ -117,7 +117,7 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` (`userId`, `userName`, `password`) VALUES (10001, '张三', '123');
+INSERT INTO `user` (`userId`, `username`, `password`) VALUES (10001, '张三', '123');
 COMMIT;
 
 -- ----------------------------
