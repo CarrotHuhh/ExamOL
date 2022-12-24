@@ -9,7 +9,7 @@ import com.se.exam.po.user;
 @Mapper
 public interface UserMapper {
     @Select("select * from user where userid=#{userid} and password=#{password}")
-    public user getuser(String userid,String password);
+    public user getuser(Integer userid,String password);
     @Insert("insert into user(password,username) values(#{password},#{username})")
-    public user signin(String password,String username);
+    public int signIn(String password, String username);
 }

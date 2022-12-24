@@ -14,12 +14,12 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/getUser")
-    public user getUser(String userid, String password)throws Exception{
+    public user getUser(Integer userid, String password)throws Exception{
         return userService.getuser(userid,password);
     }
 
-    @RequestMapping("/signin")
-    public user signin(String password,String username)throws Exception{
-        return userService.signin(password,username);
+    @RequestMapping("/signIn")
+    public int signIn(String password,String username)throws Exception{
+        return userService.signIn(password,username);
     }
 }

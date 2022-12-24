@@ -11,7 +11,7 @@
  Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 24/12/2022 00:02:26
+ Date: 24/12/2022 20:00:37
 */
 
 SET NAMES utf8mb4;
@@ -26,6 +26,8 @@ CREATE TABLE `exam` (
   `examName` varchar(20) DEFAULT NULL COMMENT '考试名称',
   `paperId` int DEFAULT NULL COMMENT '考试试卷编号',
   `userId` int DEFAULT NULL COMMENT '考试用户编号',
+  `choiceScore` int DEFAULT '2',
+  `fillingScore` int DEFAULT '2',
   PRIMARY KEY (`examId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 
@@ -33,7 +35,7 @@ CREATE TABLE `exam` (
 -- Records of exam
 -- ----------------------------
 BEGIN;
-INSERT INTO `exam` (`examId`, `examName`, `paperId`, `userId`) VALUES (1, '历史考试', 1, 10001);
+INSERT INTO `exam` (`examId`, `examName`, `paperId`, `userId`, `choiceScore`, `fillingScore`) VALUES (1, '历史考试', 1, 10001, 2, 2);
 COMMIT;
 
 -- ----------------------------
@@ -46,13 +48,13 @@ CREATE TABLE `paper` (
   `choiceAmount` int DEFAULT '0' COMMENT '选择题数目',
   `fillingAmount` int DEFAULT '0' COMMENT '填空题数目',
   PRIMARY KEY (`paperId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of paper
 -- ----------------------------
 BEGIN;
-INSERT INTO `paper` (`paperId`, `paperName`, `choiceAmount`, `fillingAmount`) VALUES (1, '历史考试', 2, 1);
+INSERT INTO `paper` (`paperId`, `paperName`, `choiceAmount`, `fillingAmount`) VALUES (1, '历史考试', 3, 2);
 COMMIT;
 
 -- ----------------------------
@@ -64,7 +66,7 @@ CREATE TABLE `question` (
   `type` int NOT NULL COMMENT '类别（0为选择1位填空）',
   `paperId` int NOT NULL COMMENT '属于哪张卷子',
   `content` varchar(255) DEFAULT NULL COMMENT '试题内容\n',
-  `answer` varchar(255) DEFAULT NULL COMMENT '答案\n',
+  `answer` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '答案\n',
   `optionA` varchar(255) DEFAULT NULL COMMENT '选项A',
   `optionB` varchar(255) DEFAULT NULL COMMENT '选项B',
   `optionC` varchar(255) DEFAULT NULL COMMENT '选项C',
@@ -72,7 +74,7 @@ CREATE TABLE `question` (
   PRIMARY KEY (`questionId`) USING BTREE,
   KEY `paperId_FK` (`paperId`),
   CONSTRAINT `paperId_FK` FOREIGN KEY (`paperId`) REFERENCES `paper` (`paperId`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of question
@@ -81,25 +83,52 @@ BEGIN;
 INSERT INTO `question` (`questionId`, `type`, `paperId`, `content`, `answer`, `optionA`, `optionB`, `optionC`, `optionD`) VALUES (1, 0, 1, '中华人民共和国建国于（）年？', '1949', '1948', '1949', '1950', '1951');
 INSERT INTO `question` (`questionId`, `type`, `paperId`, `content`, `answer`, `optionA`, `optionB`, `optionC`, `optionD`) VALUES (2, 0, 1, '改革开放开始于（）年？', '1978', '1978', '1979', '1980', '1981');
 INSERT INTO `question` (`questionId`, `type`, `paperId`, `content`, `answer`, `optionA`, `optionB`, `optionC`, `optionD`) VALUES (3, 1, 1, '中国历史上第一位皇帝是（）？', '秦始皇', NULL, NULL, NULL, NULL);
+INSERT INTO `question` (`questionId`, `type`, `paperId`, `content`, `answer`, `optionA`, `optionB`, `optionC`, `optionD`) VALUES (4, 0, 1, '唐太宗时期，先后进谏200多次的名臣是（）？', '魏征', '房玄龄 ', '魏征', '杜如晦', '长孙无忌 ');
+INSERT INTO `question` (`questionId`, `type`, `paperId`, `content`, `answer`, `optionA`, `optionB`, `optionC`, `optionD`) VALUES (5, 1, 1, '世界第八大奇迹是指（）？', '秦始皇陵兵马俑', NULL, NULL, NULL, NULL);
 COMMIT;
 
 -- ----------------------------
--- Table structure for records
+-- Table structure for record
 -- ----------------------------
-DROP TABLE IF EXISTS `records`;
-CREATE TABLE `records` (
-  `recordId` int unsigned NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `record`;
+CREATE TABLE `record` (
+  `examId` int NOT NULL,
   `userId` int DEFAULT NULL,
-  `examId` int DEFAULT NULL,
   `examName` varchar(20) DEFAULT NULL,
   `score` int DEFAULT NULL,
-  PRIMARY KEY (`recordId`)
+  PRIMARY KEY (`examId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
--- Records of records
+-- Records of record
 -- ----------------------------
 BEGIN;
+INSERT INTO `record` (`examId`, `userId`, `examName`, `score`) VALUES (1, 10001, '历史考试', 8);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for Submission
+-- ----------------------------
+DROP TABLE IF EXISTS `Submission`;
+CREATE TABLE `Submission` (
+  `submissionId` int unsigned NOT NULL AUTO_INCREMENT,
+  `examId` int DEFAULT NULL,
+  `questionId` int DEFAULT NULL,
+  `answer` varchar(20) DEFAULT NULL,
+  `isGraded` int DEFAULT NULL,
+  `type` int DEFAULT NULL,
+  PRIMARY KEY (`submissionId`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+
+-- ----------------------------
+-- Records of Submission
+-- ----------------------------
+BEGIN;
+INSERT INTO `Submission` (`submissionId`, `examId`, `questionId`, `answer`, `isGraded`, `type`) VALUES (1, 1, 2, '1978', 0, 0);
+INSERT INTO `Submission` (`submissionId`, `examId`, `questionId`, `answer`, `isGraded`, `type`) VALUES (2, 1, 5, '秦始皇陵兵马俑', 0, 1);
+INSERT INTO `Submission` (`submissionId`, `examId`, `questionId`, `answer`, `isGraded`, `type`) VALUES (3, 1, 1, '1948', 0, 0);
+INSERT INTO `Submission` (`submissionId`, `examId`, `questionId`, `answer`, `isGraded`, `type`) VALUES (4, 1, 3, '秦始皇', 0, 1);
+INSERT INTO `Submission` (`submissionId`, `examId`, `questionId`, `answer`, `isGraded`, `type`) VALUES (5, 1, 4, '魏征', 0, 0);
 COMMIT;
 
 -- ----------------------------
@@ -111,13 +140,16 @@ CREATE TABLE `user` (
   `username` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(50) NOT NULL COMMENT '密码',
   PRIMARY KEY (`userId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10010 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10005 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 BEGIN;
 INSERT INTO `user` (`userId`, `username`, `password`) VALUES (10001, '张三', '123');
+INSERT INTO `user` (`userId`, `username`, `password`) VALUES (10002, 'user02', '123');
+INSERT INTO `user` (`userId`, `username`, `password`) VALUES (10003, 'user03', '123');
+INSERT INTO `user` (`userId`, `username`, `password`) VALUES (10004, 'user04', '123');
 COMMIT;
 
 -- ----------------------------

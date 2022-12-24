@@ -1,40 +1,58 @@
 package com.se.exam.po;
 
 public class Exam {
-	private Integer examId;
-	private String examName;
-	private Integer paperId;
-	private Integer userId;
+    private Integer examId;
+    private String examName;
+    private Integer paperId;
+    private Integer userId;
+    private Integer choiceScore;
+    private Integer fillingScore;
 
-	public Integer getExamId() {
-		return examId;
-	}
+    public Integer getChoiceScore() {
+        return choiceScore;
+    }
 
-	public void setExamId(Integer examId) {
-		this.examId = examId;
-	}
+    public void setChoiceScore(Integer choiceScore) {
+        this.choiceScore = choiceScore;
+    }
 
-	public String getExamName() {
-		return examName;
-	}
+    public Integer getFillingScore() {
+        return fillingScore;
+    }
 
-	public void setExamName(String examName) {
-		this.examName = examName;
-	}
+    public void setFillingScore(Integer fillingScore) {
+        this.fillingScore = fillingScore;
+    }
 
-	public Integer getPaperId() {
-		return paperId;
-	}
+    public Integer getExamId() {
+        return examId;
+    }
 
-	public void setPaperId(Integer paperId) {
-		this.paperId = paperId;
-	}
+    public void setExamId(Integer examId) {
+        this.examId = examId;
+    }
 
-	public Integer getUserId() {
-		return userId;
-	}
+    public String getExamName() {
+        return examName;
+    }
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    public void setExamName(String examName) {
+        this.examName = examName;
+    }
+
+    public Integer getPaperId() {
+        return paperId;
+    }
+
+    public void setPaperId(Integer paperId) {
+        this.paperId = paperId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }
