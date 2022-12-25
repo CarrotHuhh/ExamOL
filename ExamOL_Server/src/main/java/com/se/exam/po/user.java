@@ -2,9 +2,9 @@ package com.se.exam.po;
 
 public class user {
     private String username;
-    private Integer userid;
+    private Integer userId;
     private String password;
-    private String useraccount;
+    private String userAccount;
 
     public String getPassword() {
         return password;
@@ -22,19 +22,19 @@ public class user {
         this.username = username;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
     
-    public String getUseraccount() {
-    	return useraccount;
+    public String getUserAccount() {
+    	return userAccount;
     }
     
-    public void setUseraccount(String useraccount) {
-    	this.useraccount = useraccount;
+    public void setUserAccount(String userAccount) {
+    	this.userAccount = userAccount;
     }
 }
