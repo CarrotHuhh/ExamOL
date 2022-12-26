@@ -8,10 +8,7 @@ public class Exam {
     private Integer choiceScore;
     private Integer fillingScore;
     private Integer examTime;
-<<<<<<< HEAD
-=======
     private Integer examState;
->>>>>>> 298c452 (fzh-1226)
 
     public Integer getChoiceScore() {
         return choiceScore;
@@ -60,23 +57,20 @@ public class Exam {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
-    
+
     public Integer getExamTime() {
-    	return examTime;
+        return examTime;
     }
-    
+
     public void setExamTime(Integer examTime) {
-    	this.examTime = examTime;
+        this.examTime = examTime;
     }
-<<<<<<< HEAD
-=======
-    
+
     public Integer getExamState() {
-    	return examState;
+        return examState;
     }
-    
+
     public void setExamState(Integer examState) {
-    	this.examState = examState;
+        this.examState = examState;
     }
->>>>>>> 298c452 (fzh-1226)
 }

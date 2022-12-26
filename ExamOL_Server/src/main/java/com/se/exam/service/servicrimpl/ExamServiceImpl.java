@@ -21,13 +21,8 @@ public class ExamServiceImpl implements ExamService {
     public List<Exam> getExamById(Integer userId) {
         return examMapper.getExamById(userId);
     }
-
-<<<<<<< HEAD
-    ;
-=======
     @Override
     public Integer updateExamState(Integer examId) {
     	return examMapper.updateExamState(examId);
     }
->>>>>>> 298c452 (fzh-1226)
 }

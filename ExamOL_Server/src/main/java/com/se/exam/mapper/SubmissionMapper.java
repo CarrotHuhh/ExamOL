@@ -4,11 +4,7 @@ import com.se.exam.po.Submission;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-<<<<<<< HEAD
-=======
 import org.apache.ibatis.annotations.Update;
->>>>>>> 298c452 (fzh-1226)
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -19,10 +15,7 @@ public interface SubmissionMapper {
 
     @Select("select * from submission where examId=#{examId}")
     public List<Submission> getSubmissionByExamId(Integer examId);
-<<<<<<< HEAD
-=======
     
     @Update("update submission set isGraded=1 where submissionId=#{submissionId}")
     public int updateGraded(Integer submissionId);
->>>>>>> 298c452 (fzh-1226)
 }
