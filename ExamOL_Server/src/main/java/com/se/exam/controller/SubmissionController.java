@@ -3,10 +3,13 @@ package com.se.exam.controller;
 import com.se.exam.po.Submission;
 import com.se.exam.service.SubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+=======
+>>>>>>> 112e1e8 (fzh-added)
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

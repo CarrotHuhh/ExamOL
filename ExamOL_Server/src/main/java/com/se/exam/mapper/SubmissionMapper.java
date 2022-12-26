@@ -5,6 +5,10 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+<<<<<<< HEAD
+=======
+import org.springframework.stereotype.Service;
+>>>>>>> 112e1e8 (fzh-added)
 
 import java.util.List;
 

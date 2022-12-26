@@ -22,7 +22,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int signIn(String password, String username, String useraccount) {
-        return userMapper.signIn(password, username, useraccount);
-    }
+    public int signIn(String password, String username, String useraccount) {return userMapper.signIn(password, username, useraccount);}
+
+    @Override
+    public int updateusername(String useraccount,String username){return userMapper.updateusername(useraccount,username);}
+
+    @Override
+    public int updateuseraccount(String useraccount,String newaccount){return userMapper.updateuseraccount(useraccount,newaccount);}
+
+    @Override
+    public int updatepassword(String useraccount,String password){return userMapper.updatepassword(useraccount,password);}
 }

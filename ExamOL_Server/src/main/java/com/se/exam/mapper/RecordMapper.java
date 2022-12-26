@@ -19,4 +19,7 @@ public interface RecordMapper {
     
     @Select("select * from record where userId=#{userId}")
     public List<Record> getRecord(Integer userId);
+    
+    @Update("update record set min=#{min}, sec=#{sec} where examId=#{examId}")
+    public int setTime(Integer min, Integer sec, Integer examId);
 }

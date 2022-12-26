@@ -17,4 +17,9 @@ public class RecordServiceImpl implements RecordService{
 	public List<Record> getRecord(Integer userId) {
 		return recordMapper.getRecord(userId);
 	}
+	
+	@Override
+	public int setTime(Integer min, Integer sec, Integer examId) {
+		return recordMapper.setTime(min, sec, examId);
+	}
 }

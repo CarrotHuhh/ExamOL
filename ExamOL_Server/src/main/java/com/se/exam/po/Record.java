@@ -5,6 +5,8 @@ public class Record {
     private Integer examId;
     private String examName;
     private Integer score;
+    private Integer min;
+    private Integer sec;
 
     public Integer getUserId() {
         return userId;
@@ -36,5 +38,21 @@ public class Record {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+    
+    public Integer getMin() {
+    	return min;
+    }
+    
+    public void setMin(Integer min) {
+    	this.min = min;
+    }
+    
+    public Integer getSec() {
+    	return sec;
+    }
+    
+    public void setSec(Integer sec) {
+    	this.sec = sec;
     }
 }

@@ -22,7 +22,10 @@ public class SubmissionServiceImpl implements SubmissionService {
 
     @Override
     public int submit(List<Submission> submissions) {
+<<<<<<< HEAD
         //创建考试记录
+=======
+>>>>>>> 112e1e8 (fzh-added)
         Record record = new Record();
         record.setExamId(submissions.get(0).getExamId());
         record.setUserId(examMapper.getUserIdByExamId(record.getExamId()));
@@ -30,7 +33,10 @@ public class SubmissionServiceImpl implements SubmissionService {
         recordMapper.saveRecord(record);
         int rows = 0;
         for (Submission submission : submissions) {
+<<<<<<< HEAD
             //提交每题答题情况
+=======
+>>>>>>> 112e1e8 (fzh-added)
             rows += submissionMapper.submit(submission);
         }
         return rows;
@@ -42,17 +48,31 @@ public class SubmissionServiceImpl implements SubmissionService {
         Integer grade = 0;
         for (Submission submission : submissions) {
             String answer = questionMapper.getAnswerById(submission.getQuestionId());
+<<<<<<< HEAD
             if (answer.equals(submission.getAnswer()) && submission.getType() == 0) {
                 grade += examMapper.getExamByExamId(submission.getExamId()).getChoiceScore();
                 submissionMapper.updateGraded(submission.getSubmissionId());
             } else if (answer.equals(submission.getAnswer()) && submission.getType() == 1) {
                 grade += examMapper.getExamByExamId(submission.getExamId()).getFillingScore();
                 submissionMapper.updateGraded(submission.getSubmissionId());
+=======
+            if(answer.equals(submission.getAnswer())&&submission.getType()==0){
+                grade+=examMapper.getExamByExamId(submission.getExamId()).getChoiceScore();
+                submissionMapper.updateGraded(submission.getSubmissionId());
+            }
+            else if(answer.equals(submission.getAnswer())&&submission.getType()==1){
+                grade+=examMapper.getExamByExamId(submission.getExamId()).getFillingScore();
+                submissionMapper.updateGraded(submission.getSubmissionId());
+>>>>>>> 112e1e8 (fzh-added)
             }
         }
         return recordMapper.grade(grade, examId);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 112e1e8 (fzh-added)
     @Override
     public int updateGraded(Integer submissionId) {
         return submissionMapper.updateGraded(submissionId);

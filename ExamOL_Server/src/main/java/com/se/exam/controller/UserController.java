@@ -1,4 +1,5 @@
 package com.se.exam.controller;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,5 +27,17 @@ public class UserController {
     @RequestMapping("/signIn")
     public int signIn(String password,String username, String useraccount)throws Exception{
         return userService.signIn(password,username,useraccount);
+    }
+    @RequestMapping("/updateusername")
+    public int updateusername(String useraccount,String username)throws Exception {
+        return userService.updateusername(useraccount,username);
+    }
+    @RequestMapping("/updateuseraccount")
+    public int updateuseraccount(String useraccount,String newaccount)throws Exception{
+        return userService.updateuseraccount(useraccount,newaccount);
+    }
+    @RequestMapping("/updatepassword")
+    public int updatepassword(String useraccount,String password)throws Exception{
+        return userService.updatepassword(useraccount,password);
     }
 }

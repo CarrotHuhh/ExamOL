@@ -2,9 +2,12 @@ package com.se.exam.po;
 
 public class user {
     private String username;
+<<<<<<< HEAD
     private Integer userId;
     private String password;
     private String userAccount;
+=======
+>>>>>>> 112e1e8 (fzh-added)
     private Integer userid;
     private String useraccount;
 
@@ -24,6 +27,7 @@ public class user {
         this.username = username;
     }
 
+<<<<<<< HEAD
     public Integer getUserId() {
         return userId;
     }
@@ -40,6 +44,8 @@ public class user {
         this.userAccount = userAccount;
     }
 
+=======
+>>>>>>> 112e1e8 (fzh-added)
     public Integer getUserid() {
         return userid;
     }
@@ -53,6 +59,10 @@ public class user {
     }
 
     public void setUseraccount(String useraccount) {
+<<<<<<< HEAD
         this.useraccount = useraccount;
+=======
+    	this.useraccount = useraccount;
+>>>>>>> 112e1e8 (fzh-added)
     }
 }

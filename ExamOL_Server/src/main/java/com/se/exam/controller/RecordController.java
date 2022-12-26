@@ -19,4 +19,9 @@ public class RecordController{
     public List<Record> getRecord(Integer userId){
         return recordservice.getRecord(userId);
     }
+	
+	@RequestMapping("/setTime")
+	public int setTime(Integer min, Integer sec, Integer examId) {
+		return recordservice.setTime(min, sec, examId);
+	}
 }
