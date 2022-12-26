@@ -7,4 +7,8 @@ import java.util.List;
 public interface SubmissionService {
     public int submit(List<Submission> submissions);
     public int grade(Integer examId);
+<<<<<<< HEAD
+=======
+    public int updateGraded(Integer submissionId);
+>>>>>>> 298c452 (fzh-1226)
 }
