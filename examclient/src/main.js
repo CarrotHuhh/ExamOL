@@ -18,7 +18,7 @@ import {
 Vue.config.productionTip = false
 
 //set base url
-axios.defaults.baseURL = 'http://192.168.2.154:8080/exam/';
+axios.defaults.baseURL = 'http://localhost:8080/exam/';
 //attach axios to vue, using by this.$axios
 Vue.prototype.$axios = axios;
 //attach qs to vue, using by this.$qs
