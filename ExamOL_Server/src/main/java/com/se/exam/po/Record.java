@@ -39,20 +39,20 @@ public class Record {
     public void setScore(Integer score) {
         this.score = score;
     }
-    
+
     public Integer getMin() {
-    	return min;
+        return min;
     }
-    
+
     public void setMin(Integer min) {
-    	this.min = min;
+        this.min = min;
     }
-    
+
     public Integer getSec() {
-    	return sec;
+        return sec;
     }
-    
+
     public void setSec(Integer sec) {
-    	this.sec = sec;
+        this.sec = sec;
     }
 }

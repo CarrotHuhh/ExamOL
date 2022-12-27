@@ -14,16 +14,19 @@ import java.util.List;
 public class PaperController {
     @Autowired
     PaperService paperService;
+
     @RequestMapping("/getPaperInfoById")
-    public Paper getPaperById(Integer paperId){
+    public Paper getPaperById(Integer paperId) {
         return paperService.getPaperInfoById(paperId);
     }
+
     @RequestMapping("/getPaperChoice")
-    public List<Question> getPaperChoice(Integer paperId){
+    public List<Question> getPaperChoice(Integer paperId) {
         return paperService.getPaperChoice(paperId);
     }
+
     @RequestMapping("/getPaperFilling")
-    public List<Question> getPaperFilling(Integer paperId){
+    public List<Question> getPaperFilling(Integer paperId) {
         return paperService.getPaperFilling(paperId);
     }
 }

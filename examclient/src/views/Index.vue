@@ -69,7 +69,7 @@
 			this.user = this.$getSessionStorage('user');
 			
 			this.$axios.post('ExamController/getExamById', this.$qs.stringify({
-				userId:this.user.userid
+				userId:this.user.userId
 			})).then(response=>{
 				this.examArr = response.data;
 				
@@ -117,18 +117,18 @@
 					examId: examId
 				})).then(response=>{
 					var examTemp = response.data;
-					const tempDate = this.$moment().format(examTemp.examDate, 'yyyy-MM-dd hh:mm');
+					const tempDate = this.$moment().format(examTemp.examDate, 'yyyy/MM/dd hh:mm');
 					const examDate = new Date(tempDate);
 					
 					const now = new Date();
-					const tempNow = this.$moment(now, 'yyyy-MM-dd hh:mm').format();
+					const tempNow = this.$moment(now, 'yyyy/MM/dd hh:mm').format();
 					const nowDate = new Date(tempNow);
 					
 					// console.log(examTemp.examDate);
-					console.log(examDate);
-					console.log(nowDate);
+					console.log(tempDate);
+					console.log(tempNow);
 					
-					if (examDate < nowDate){
+					if (tempDate < tempNow){
 						this.$router.push({path:'/exam', query:{paperId:paperId, examId:examId}});
 					}
 					else{

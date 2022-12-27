@@ -1,11 +1,8 @@
 package com.se.exam.mapper;
 
 import com.se.exam.po.Paper;
-import com.se.exam.po.Question;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-
-import java.util.List;
 
 @Mapper
 public interface PaperMapper {

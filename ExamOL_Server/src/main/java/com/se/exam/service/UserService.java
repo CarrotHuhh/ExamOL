@@ -1,11 +1,17 @@
 package com.se.exam.service;
-import com.se.exam.po.user;
+
+import com.se.exam.po.User;
 
 public interface UserService {
-    public user getuser(String useraccount,String password);
-    public int getUserByaccount(String useraccount);
-    public int signIn(String password, String username, String useraccount);
-    public int updateusername(String useraccount,String username);
-    public int updateuseraccount(String useraccount,String newaccount);
-    public int updatepassword(String useraccount,String password);
+    public User getUser(String userAccount, String password);
+
+    public int getUserByAccount(String userAccount);
+
+    public int signIn(String password, String username, String userAccount);
+
+    public int updateUsername(String userAccount, String username);
+
+    public int updateUserAccount(String userAccount, String newAccount);
+
+    public int updatePassword(String userAccount, String password);
 }

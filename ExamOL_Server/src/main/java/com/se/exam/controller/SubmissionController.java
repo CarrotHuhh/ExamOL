@@ -3,16 +3,8 @@ package com.se.exam.controller;
 import com.se.exam.po.Submission;
 import com.se.exam.service.SubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-=======
->>>>>>> 112e1e8 (fzh-added)
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,11 +18,12 @@ public class SubmissionController {
 
     @RequestMapping("/submit")
     public int submit(@RequestBody Map<String, List<Submission>> sub) {
-    	List<Submission> submissions = sub.get("submissions");
+        List<Submission> submissions = sub.get("submissions");
         return submissionService.submit(submissions);
     }
+
     @RequestMapping("/grade")
-    public int grade(Integer examId){
+    public int grade(Integer examId) {
         return submissionService.grade(examId);
     }
 }

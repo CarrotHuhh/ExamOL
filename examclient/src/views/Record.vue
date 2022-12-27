@@ -50,7 +50,7 @@
 			this.user = this.$getSessionStorage('user');
 			
 			this.$axios.post('RecordController/getRecord', this.$qs.stringify({
-				userId: this.user.userid
+				userId: this.user.userId
 			})).then(response=>{
 				this.recordArr = response.data;
 				

@@ -9,11 +9,7 @@ public class Exam {
     private Integer fillingScore;
     private Integer examTime;
     private Integer examState;
-<<<<<<< HEAD
-=======
     private String examDate;
->>>>>>> 112e1e8 (fzh-added)
-
     public Integer getChoiceScore() {
         return choiceScore;
     }
@@ -69,11 +65,7 @@ public class Exam {
     public void setExamTime(Integer examTime) {
         this.examTime = examTime;
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 112e1e8 (fzh-added)
     public Integer getExamState() {
         return examState;
     }
@@ -81,15 +73,12 @@ public class Exam {
     public void setExamState(Integer examState) {
         this.examState = examState;
     }
-<<<<<<< HEAD
-=======
-    
+
     public String getExamDate() {
-    	return examDate;
+        return examDate;
     }
-    
+
     public void setExamDate(String examDate) {
-    	this.examDate = examDate;
+        this.examDate = examDate;
     }
->>>>>>> 112e1e8 (fzh-added)
 }

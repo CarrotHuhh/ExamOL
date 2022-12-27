@@ -20,11 +20,7 @@ public interface ExamMapper {
 
     @Select("select examName from exam where examId = #{examId}")
     public String getExamNameByExamId(Integer examId);
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 112e1e8 (fzh-added)
     @Update("update exam set examState=1 where examId=#{examId}")
     public Integer updateExamState(Integer examId);
 }

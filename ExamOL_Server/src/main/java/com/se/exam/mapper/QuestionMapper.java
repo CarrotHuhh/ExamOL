@@ -10,8 +10,10 @@ import java.util.List;
 public interface QuestionMapper {
     @Select("select * from question where paperId=#{paperId} and type=0")
     public List<Question> getPaperChoice(Integer paperId);
+
     @Select("select * from question where paperId=#{paperId} and type=1")
     public List<Question> getPaperFilling(Integer paperId);
+
     @Select("select answer from question where questionId=#{questionId}")
     public String getAnswerById(Integer questionId);
 }

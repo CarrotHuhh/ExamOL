@@ -21,12 +21,8 @@ public class ExamController {
     public Integer updateExamState(Integer examId) {
     	return examService.updateExamState(examId);
     }
-<<<<<<< HEAD
-=======
-    
     @RequestMapping("/getExamByExamId")
     public Exam getExamByExamId(Integer examId) {
     	return examService.getExamByExamId(examId);
     }
->>>>>>> 112e1e8 (fzh-added)
 }

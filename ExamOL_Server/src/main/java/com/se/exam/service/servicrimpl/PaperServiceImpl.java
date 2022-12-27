@@ -22,14 +22,6 @@ public class PaperServiceImpl implements PaperService {
         return paperMapper.getPaperInfoById(paperId);
     }
 
-    /*    @Override
-        public List<Question> getPaperQues(Integer paperId){
-            List<Question> choiceList = questionMapper.getPaperChoice(paperId);
-            List<Question> fillingList = questionMapper.getPaperFilling(paperId);
-            List<Question> quesList = choiceList;
-            quesList.addAll(fillingList);
-            return quesList;
-        }*/
     @Override
     public List<Question> getPaperChoice(Integer paperId) {
         return questionMapper.getPaperChoice(paperId);
